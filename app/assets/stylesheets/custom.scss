@@ -1,15 +1,26 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+$blue: #00afff;
+$blue-gray-d4: #d4d4d5;
+$color-card-footer: rgba(0, 0, 0, .4);
+$color-border-card-footer: rgba(0, 0, 0, .05);
+$color-card-text: rgba(0, 0, 0, .68);
+$color-meta-a: rgba(0, 0, 0, .4);
+$color-meta-a-hover: rgba(0, 0, 0, .87);
+$color-meta: rgba(0, 0, 0, .4);
 $gray-medium-light: #eaeaea;
+$main-bg: #edeff0;
+$opacity-gray: rgba(34, 36, 38, .1);
 $white: #fff;
 
 body {
-  padding-top: 40px;
+  background: $main-bg;
+  padding: 40px 0;
 }
 
 .logo {
-  color: $white;
+  color: $blue;
   float: left;
   font-size: 1.7em;
   font-weight: bold;
@@ -19,7 +30,7 @@ body {
   text-transform: uppercase;
 
   &:hover {
-    color: $white;
+    color: $blue;
     text-decoration: none;
   }
 }
@@ -61,5 +72,76 @@ footer {
     border-bottom: 1px solid $gray-lighter;
     overflow: auto;
     padding: 10px 0;
+  }
+}
+
+.main {
+  margin-top: 50px;
+}
+
+.card {
+  border: none;
+  border-radius: .28571429rem;
+  box-shadow: 0.2em 0.3em 0.7em #E5E6E7;
+  background-color: $white;
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
+
+  .card-block {
+    border: none;
+    border-top: 1px solid $opacity-gray;
+    box-shadow: none;
+    font-size: 1em;
+    margin: 0;
+    position: relative;
+    padding: 0 1em 1.5em 1em;
+
+    .text-bold {
+      font-weight: 700;
+    }
+
+    .meta {
+      color: $color-meta;
+      font-size: 1em;
+
+      a {
+       text-decoration: none;
+       color: $color-meta-a;
+
+       &:hover {
+         color: $color-meta-a-hover;
+       }
+      }
+     }
+
+    .card-title {
+      font-size: 1.28571429em;
+      font-weight: 700;
+      line-height: 1.2857em;
+    }
+    .card-text {
+      color: $color-card-text;
+      clear: both;
+      margin-top: .2em;
+    }
+  }
+
+  .card-img-top {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .card-footer {
+    border-top: 1px solid $white !important;
+    background: $white;
+    color: $color-card-footer;
+    font-size: 1em;
+    left: 0;
+    max-width: 100%;
+    position: static;
+    padding: .75em 1em;
+    top: 0;
   }
 }

@@ -28,6 +28,8 @@ RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck: { except_methods: [
   UsersController#index,
   PagesController#show,
+  ProductsController#show,
+  ProductsController#edit
 ]}
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: {

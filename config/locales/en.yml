@@ -144,3 +144,7 @@ en:
   img: "Image"
   action: "Action"
   are_you_sure: "Are you sure?"
+  add_to_cart: "Add to cart"
+  show: "Show"
+  edit: "Modify"
+  delete: "Remove"
