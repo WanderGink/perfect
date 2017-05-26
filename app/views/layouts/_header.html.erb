@@ -1,13 +1,75 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<!-- <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to t(".comet"), root_path, id: "logo" %>
+    <%#= link_to t(".comet"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t(".home"), root_path %></li>
-        <li><%= link_to t(".help"), pages_help_path %></li>
-        <li><%= link_to t(".about"), pages_about_path %></li>
-        <li><%= link_to t(".contact"), pages_contact_path %></li>
+        <li><%#= link_to t(".home"), root_path %></li>
+        <li><%#= link_to t(".help"), pages_help_path %></li>
+        <li><%#= link_to t(".about"), pages_about_path %></li>
+        <li><%#= link_to t(".contact"), pages_contact_path %></li>
       </ul>
     </nav>
   </div>
-</header>
+</header> -->
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-white">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right" type="button"
+      data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%= link_to t(".comet"), root_path, class: "navbar-brand" %>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to root_path, class: "nav-link" do %>
+            <%= t("home") %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("product"), products_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("help"), pages_help_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("about"), pages_about_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("contact"), pages_contact_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <div class="input-group">
+          <input class="form-control" type="text"
+            aria-describedby="search-addon" placeholder="Search">
+          <button class="input-group-addon" id="search-addon">
+            <i class="icon-magnifier i-md"></i>
+          </button>
+        </div>
+      </form>
+      <div class="dropdown">
+        <a class="navbar-text ml-5 dropdown-toggle" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="icon-basket i-2x font-blue"></i>
+        </a>
+        <div class="dropdown-menu">
+          <%= link_to t("about"), pages_about_path, class: "dropdown-item" %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="navbar-text dropdown-toggle" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="icon-user i-2x font-blue"></i>
+        </a>
+        <div class="dropdown-menu">
+          <%= user.email %>
+          <%= link_to t("logout"), destroy_user_session_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

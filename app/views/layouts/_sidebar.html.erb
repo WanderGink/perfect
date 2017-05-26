@@ -1,0 +1,12 @@
+<div class="left-aside">
+  <ul class="list-group">
+    <li class="list-group-item active-red-title">Category</li>
+    <% if categories.present? %>
+      <% categories.each do |c| %>
+      <li class="list-group-item">
+          <%= c.name %>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
