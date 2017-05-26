@@ -9,12 +9,12 @@ class ProductsController < ApplicationController
   def show
   end
 
-  def edit
+  def new
+    @product = current_user.products.build
     @categories = Category.all
   end
 
-  def new
-    @product = current_user.products.build
+  def edit
     @categories = Category.all
   end
 

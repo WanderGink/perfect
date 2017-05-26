@@ -30,7 +30,8 @@ en:
   help: "Help"
   about: "About"
   contact: "Contact"
-
+  product: "Product"
+  logout: "Logout"
   layouts:
     footer:
       content3: "Moi thong tin chi tiet xin lien he"

@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get "pages/about"
   get "pages/contact"
   root "pages#show", page: "home"
+
+  resources :products
 end

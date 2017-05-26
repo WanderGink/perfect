@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render "layouts/sidebar", categories: @categories %>
+  </div>
+  <div class="col-md-9">
+    <div class="primary-content">
+      <%= link_to t("Sell Product"), new_product_path, class: "btn btn-blue" %>
+      <div class="row">
+      <% if @products.present? %>
+        <% @products.each do |product| %>
+          <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="card">
+              <%= image_tag product.product_image.url(:thumb),
+                class: "card-img-top", height: 200, width: 220 %>
+              <div class="card-block">
+                <div class="clearfix">
+                  <h6 class="card-title float-left"><%= product.title %></h6>
+                  <h6 class="card-title float-right">
+                    <%= number_to_currency product.price %>
+                  </h6>
+                </div>
+                <p class="card-text"><%= product.description %></p>
+                <%= link_to t("add_to_cart"), "#",
+                  class: "btn btn-sm btn-blue" %>
+                <%= link_to edit_product_path(product) do %>
+                  <i class="icon-note i-2x text-success"></i>
+                <% end %>
+                <%= link_to product_path(product) do %>
+                  <i class="icon-info i-2x text-success"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="row">
+  <%= image_tag @product.product_image.url(:thumb) %>
+  <%= @product.title %>
+  <%= number_to_currency @product.price %>
+  <%= @product.description %>
+</div>
