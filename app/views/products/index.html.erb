@@ -1,0 +1,45 @@
+<div class="row">
+  <%= link_to "Sell Product", new_product_path, class: "btn btn-success" %>
+  <br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t "id" %></th>
+        <th><%= t "title" %>Title</th>
+        <th><%= t "des" %></th>
+        <th><%= t "price" %></th>
+        <th><%= t "img" %></th>
+        <th span="3"><%= t "action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if @products.present? %>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= number_to_currency product.price %></td>
+        <td><%= image_tag product.product_image.url(:thumb) %></td>
+        <td>
+          <%= link_to product_path(product) do %>
+            <i class="ion ion-ios-information-outline"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_product_path(product) do %>
+            <i class="ion ion-compose"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to product_path(product), method: :delete,
+            data: {confirm: t("are_you_sure")} do %>
+            <i class="ion ion-ios-trash-outline"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

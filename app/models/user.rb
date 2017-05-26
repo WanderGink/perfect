@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one :cart
   has_one :shop
 
+  has_many :products
   has_many :relationships, dependent: :destroy
   has_many :comment_products
   has_many :comment_shops

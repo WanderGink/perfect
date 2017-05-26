@@ -30,6 +30,7 @@ en:
   help: "Help"
   about: "About"
   contact: "Contact"
+  products: "Products"
 
   layouts:
     footer:
@@ -131,3 +132,15 @@ en:
     user:
       linkto6: "Delete"
       linkto7: "You sure"
+  product_not_found: "Product not found!"
+  the_form_contains: "The form contains"
+  error_counter:
+    one: "1 error"
+    other: "%{count} errors"
+  id: "ID"
+  title: "Title"
+  des: "Description"
+  price: "Price"
+  img: "Image"
+  action: "Action"
+  are_you_sure: "Are you sure?"
