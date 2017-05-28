@@ -5,6 +5,7 @@ $blue: #00afff;
 $blue-gray-d4: #d4d4d5;
 $color-card-footer: rgba(0, 0, 0, .4);
 $color-border-card-footer: rgba(0, 0, 0, .05);
+$color-card-box-shadow: #e5e6e7;
 $color-card-text: rgba(0, 0, 0, .68);
 $color-meta-a: rgba(0, 0, 0, .4);
 $color-meta-a-hover: rgba(0, 0, 0, .87);
@@ -79,50 +80,51 @@ footer {
   margin-top: 50px;
 }
 
+.meta {
+  color: $color-meta;
+  font-size: 1em;
+
+  a {
+    color: $color-meta-a;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-meta-a-hover;
+    }
+  }
+}
+
 .card {
-  border: none;
-  border-radius: .28571429rem;
-  box-shadow: 0.2em 0.3em 0.7em #E5E6E7;
   background-color: $white;
+  border: 0;
+  border-radius: .28571429rem;
+  box-shadow: .2em .3em .7em $color-card-box-shadow;
   font-size: 1em;
   overflow: hidden;
   padding: 0;
 
   .card-block {
-    border: none;
+    border: 0;
     border-top: 1px solid $opacity-gray;
     box-shadow: none;
     font-size: 1em;
     margin: 0;
+    padding: 0 1em 1.5em;
     position: relative;
-    padding: 0 1em 1.5em 1em;
 
     .text-bold {
       font-weight: 700;
     }
-
-    .meta {
-      color: $color-meta;
-      font-size: 1em;
-
-      a {
-       text-decoration: none;
-       color: $color-meta-a;
-
-       &:hover {
-         color: $color-meta-a-hover;
-       }
-      }
-     }
 
     .card-title {
       font-size: 1.28571429em;
       font-weight: 700;
       line-height: 1.2857em;
     }
+
     .card-text {
-      color: $color-card-text;
       clear: both;
+      color: $color-card-text;
       margin-top: .2em;
     }
   }
@@ -134,14 +136,14 @@ footer {
   }
 
   .card-footer {
-    border-top: 1px solid $white !important;
     background: $white;
+    border-top: 1px solid $white !important;
     color: $color-card-footer;
     font-size: 1em;
     left: 0;
     max-width: 100%;
-    position: static;
     padding: .75em 1em;
+    position: static;
     top: 0;
   }
 }
