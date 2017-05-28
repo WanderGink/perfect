@@ -13,12 +13,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.build product_params
-    respond_to do |format|
-      if @product.save
-        format.html{redirect_to products_url}
-      else
-        format.html{render :new}
-      end
+    if @product.save
+      redirect_to products_url
+    else
+      render :new
     end
   end
 
@@ -30,20 +28,16 @@ class ProductsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @product.update product_params
-        format.html{redirect_to products_url}
-      else
-        format.html{render :edit}
-      end
+    if @product.update product_params
+      redirect_to products_url
+    else
+      render :edit
     end
   end
 
   def destroy
     @product.destroy
-    respond_to do |format|
-      format.html{redirect_to products_url}
-    end
+    redirect_to products_url
   end
 
   private
