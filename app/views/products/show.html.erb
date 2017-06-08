@@ -11,8 +11,8 @@
             <h3><%= @product.title %></h3>
             <h4><%= number_to_currency @product.price %></h4>
             <h5><%= @product.description %></h5>
-            <% if @order_item.present? %>
-              <%= form_for @order_item, url: order_items_path(@order_item),
+            <%# if @supports.order_item.present? %>
+              <%= form_for @supports.order_item, url: order_items_path(@supports.order_item),
                 remote: true do |f| %>
                 <%= f.hidden_field :quantity, value: 1,
                 class: "form-control", min: 1 %>
@@ -22,7 +22,7 @@
                   class: "btn btn-danger" %>
                 <% end %>
               <% end %>
-            <% end %>
+            <%# end %>
           </div>
         </div>
       </div>
@@ -45,7 +45,15 @@
             <div class="tab-content">
               <div id="comment" class="tab-pane fade in active">
                 <br>
+<<<<<<< HEAD
                 <%= form_for [@product, @comment], remote: true do |f| %>
+=======
+<<<<<<< HEAD
+                <%= form_for [@product, @comment], remote: true do |f| %>
+=======
+                <%= form_for [@product, @supports.comment], remote: true do |f| %>
+>>>>>>> 8dad0af... devise confirmable
+>>>>>>> d1bfdec... he
                   <div class="form-group">
                     <%= f.text_area :content, class: "form-control" %>
                   </div>
@@ -62,7 +70,15 @@
               </div>
               <div id="reviewers" class="tab-pane fade">
                 <ul class="list-unstyled">
+<<<<<<< HEAD
                 <% @raters.each do |rater| %>
+=======
+<<<<<<< HEAD
+                <% @raters.each do |rater| %>
+=======
+                <% @supports.raters.each do |rater| %>
+>>>>>>> 8dad0af... devise confirmable
+>>>>>>> d1bfdec... he
                 <li class="clearfix">
                   <br>
                   <div class="pull-left">

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   include ProductsHelper
   before_action :find_user, only: :index
   before_action :find_product, except: [:index, :new, :create]
+  before_action :load_supports
   before_action :load_category, only: [:new, :edit]
   before_action :load_order, only: [:index, :show]
 
@@ -27,8 +28,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @comment = CommentProduct.new
-    @raters = Rate.get_product_rater @product.id
+    @supports.comment
+    @supports.raters
   end
 
   def edit
@@ -70,10 +71,14 @@ class ProductsController < ApplicationController
   end
 
   def load_category
-    @user = Category.all
+    @supports.category
   end
 
   def load_order
-    @order_item = current_order.order_items.new if user_signed_in?
+    @supports.order_item if user_signed_in?
+  end
+
+  def load_supports
+    @supports = Supports::Product.new @product, current_order
   end
 end

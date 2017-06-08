@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post "/rate" => "rater#create", :as => "rate"
+  post "/rate" => "rater#create", as: "rate"
   devise_for :users, controllers: { sessions: "users/sessions"}
   root "pages#show", page: "home"
   get "pages/*page" => "pages#show"
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "pages/about"
   get "pages/contact"
   get "pages/product"
+  get "search" => "searchs#index"
 
   resources :users, except: [:create, :new, :edit] do
     resources :relationships, only: :index
@@ -24,4 +25,5 @@ Rails.application.routes.draw do
   end
   resource :order, only: :show
   resources :order_items, only: [:create, :update, :destroy]
+  resources :charges, only: [:new, :create]
 end

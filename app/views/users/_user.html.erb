@@ -15,7 +15,7 @@
         <div class="input-group">
         <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]},{prompt: "Select role"}, {class: "form-control"}) %>
         <span class="input-group-btn">
-        <%= f.submit "Change", class: "btn btn-info" %>
+          <%= f.submit "Change", class: "btn btn-info" %>
         </span>
         </div>
       <% end %>

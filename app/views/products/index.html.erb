@@ -27,8 +27,8 @@
                   <h4 class="card-text text-bold text-danger pull-left">
                     <%= number_to_currency product.price %>
                   </h4>
-                  <% if @order_item.present? %>
-                    <%= form_for @order_item, url: order_items_path(@order_item),
+                  <% if @supports.order_item.present? %>
+                    <%= form_for @supports.order_item, url: order_items_path(@supports.order_item),
                       remote: true do |f| %>
                       <%= f.hidden_field :quantity, value: 1,
                         class: "form-control", min: 1 %>

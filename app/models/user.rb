@@ -33,6 +33,14 @@ class User < ApplicationRecord
   scope :only_sale_man, (->{where role: 1})
   scope :unless_admin, (->{where "username not in ('admin')"})
 
+  scope :raters, ->(rateable_id){where "id in (?)",
+    Rate.where(rateable_id: rateable_id,
+    rateable_type: Product.name).select(:rater_id)}
+
+  scope :raters, ->(rateable_id){where "id in (?)",
+    Rate.where(rateable_id: rateable_id,
+    rateable_type: Product.name).select(:rater_id)}
+
   searchkick text_start: [:username]
 
   ratyrate_rateable "quality"
@@ -40,7 +48,6 @@ class User < ApplicationRecord
   ratyrate_rater
 
   enum role: [:admin, :sale, :buy, :bye]
-
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
