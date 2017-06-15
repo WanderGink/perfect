@@ -20,10 +20,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-/config/database.yml
-/config/secrets.yml
 /.framgia-ci-reports/*
 /public/system/*
-/db/seeds.rb
 /.framgia-ci-result.temp.yml
 /app/assets/images/*
